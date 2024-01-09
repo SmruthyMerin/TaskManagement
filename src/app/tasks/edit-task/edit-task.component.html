@@ -1,0 +1,49 @@
+<div class="container w-50 pt-4">
+    <form [formGroup]="taskForm" (ngSubmit)="edittask()" class="card" action="." method="get">
+        <div class="card-body">
+          <h2 class="card-title text-center mb-4">Task Details</h2>
+          <label class="form-label">Task Name</label>
+          <div class="mb-3">
+            <input type="text" formControlName="task" required class="form-control"
+              placeholder="Task Name">
+            <small class="form-text text-danger"
+              *ngIf="taskForm.controls['task'].touched && taskForm.controls['task'].errors?.['required']">
+              <p class="error">Please enter task name</p>
+            </small>
+           
+          </div>
+          <label class="form-label">Description</label>
+          <div class="mb-3">
+              <textarea formControlName="description" required class="form-control" placeholder="Description"></textarea>
+            <small class="form-text text-danger"
+              *ngIf="taskForm.controls['description'].touched && taskForm.controls['description'].errors?.['required']">
+              <p class="error">Please enter description</p>
+            </small>
+           
+          </div>
+          <label class="form-label">Due Date</label>
+          <div class="mb-3">
+            <input type="date"  formControlName="dueDate" required class="form-control" placeholder="Due Date">
+            <small class="form-text text-danger"
+              *ngIf="taskForm.controls['dueDate'].touched && taskForm.controls['dueDate'].errors?.['required']">
+              <p class="error">Please enter due date</p>
+            </small>
+           
+          </div>
+
+          <label class="form-label">Status</label>
+          <div class="mb-3">
+            <select class="form-select d-block w-100" formControlName="status">
+            <option [ngValue]="1">Completed</option>
+            <option [ngValue]="0">Not Completed</option>
+          </select>
+           
+          </div>
+          
+          <div class="form-footer text-end">
+            <button type="button" class="btn btn-secondary me-2" (click)="back()">Cancel</button>
+            <button type="submit" [disabled]="!taskForm.valid" class="btn btn-primary">Edit</button>
+          </div>
+        </div>
+      </form>
+</div>

@@ -1,0 +1,46 @@
+<div class="container w-50 pt-4">
+    <div class="card">
+        <div class="card-title text-center mt-2">
+            <h3>Task Details</h3>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-4">
+                    <label>Task Name</label>
+                </div>
+                <div class="col-sm-8">
+                    <label>{{ tasks[0].task }}</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label>Description</label>
+                </div>
+                <div class="col-sm-8">
+                    <label>{{ tasks[0].description }}</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label>Due Date</label>
+                </div>
+                <div class="col-sm-8">
+                    <label>{{ tasks[0].dueDate }}</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label>Satus</label>
+                </div>
+                <div class="col-sm-8">
+                    <label><span *ngIf="tasks[0].status == 1">Completed</span>
+                        <span *ngIf="tasks[0].status == 0">Not Completed</span></label>
+                </div>
+            </div>
+            <div class="text-end">
+                <button type="button" (click)="back()" class="btn btn-secondary">Back</button>
+            </div>
+        </div>
+    </div>
+</div>
